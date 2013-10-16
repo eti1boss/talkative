@@ -28,7 +28,7 @@ public class GreetingServiceTest {
 
     @Test
     public void post() throws IOException {
-        final String message = WebClient.create("http://localhost:4204").path("	").post("Hi REST!", String.class);
+        final String message = WebClient.create("http://localhost:4204").path("/GreetingServiceTest/greeting/").post("Hi REST!", String.class);
         assertEquals("hi rest!", message);
     }
 }
