@@ -1,0 +1,83 @@
+@font-face {
+  font-family: "pixel-dead";
+  src: url(../../dist/fonts/pixel-dead.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Bellerose";
+  src: url(../../dist/fonts/Bellerose.ttf) format("truetype");
+}
+
+body {
+  padding: 30px;
+}
+
+.navbar {
+  margin-bottom: 30px;
+}
+
+.postTitle {
+  padding-bottom: 20px;
+}
+
+.bigTitle {
+  text-align: center;
+  font-family: "pixel-dead", arial;
+  font-size: 32px;
+}
+
+.postText {
+  font-family: "Bellerose", arial;
+  font-size: 20px;
+  padding-top: 20px;
+  text-align: justify;
+}
+
+.postHeader {
+  position: relative;
+}
+
+.authorInformations {
+  line-height: 36px;
+}
+
+.authorName, .avatarPlace, .postDate, .postCategory{
+  float: left;
+  background-color: #FFFFFF;
+}
+
+.postDate, .postCategory{
+  color: grey;
+}
+
+.authorName, .postDate, .postCategory{
+  font-size: 15px;
+  margin-right: 8px;
+  padding: 0 8px;
+}
+
+.postCategory:hover{
+  color: grey;
+  text-decoration: underline overline;
+}
+
+.avatar{
+  width: 38px;
+}
+
+.avatarPlace{
+  padding-right: 3px;
+}
+
+.separator{
+  height: 1px;
+  background-color: rgba(0,0,0, .3);
+  width: 80%;
+  top: 18px;
+  z-index: -1;
+  position: absolute;
+}
+
+.talkativePart {
+  padding-top: 40px;
+}

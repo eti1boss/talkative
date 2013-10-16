@@ -1,4 +1,0 @@
-talkative
-=========
-
-Talkative project

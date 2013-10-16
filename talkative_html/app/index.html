@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Qvoiriot">
+
+    <title>#TALKATIVE# the new comments' wave</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="dist/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Changes on css made for our simple FrontPage -->
+    <link href="assets/css/navbar.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="assets/js/html5shiv.js"></script>
+      <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <!-- Static navbar -->
+      <div class="navbar navbar-default">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Project Talkative</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right">
+            <div class="form-group">
+              <input type="text" placeholder="Email" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="password" placeholder="Password" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-success">Sign in</button>
+          </form>
+        </div><!--/.nav-collapse -->
+      </div>
+
+      <!-- Main component for the blogPost Page -->
+      <div class="row">
+        <div class="postHeader col-md-12">
+          <div class="authorInformations">
+            <div class="avatarPlace">
+              <img class="avatar img-circle"  src="http://www.gravatar.com/avatar/a7ecbea4146d0ebc972ddad0f1ebdd00.png">
+            </div>
+            <div class="authorName">
+              <p>Quentin</p>
+            </div>
+            <a class="postCategory" href="#">Sports</a>
+            <div class="postDate">
+              <p>October 15th, 2013</p>
+            </div>
+            <div class="separator"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="postTitle">
+        <h1 class="bigTitle">Kelly Slater has surfed to an epic quik pro victory</h1>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+            <img src="assets/img/kelly.png" class="img-rounded img-responsive" alt="The king"></img>
+        </div>
+      </div>
+
+      <div class="row">
+        <p class="col-md-10 col-md-offset-1 postText">If the last hour and a half of the Quiksilver Pro Gold Coast is any indication of what we can expect out of the 2013 ASP World Tour season, surf fans around the globe are in for quite a ride this year.</p>
+
+        <p class="col-md-10 col-md-offset-1 postText">In pumping six-foot surf, Kelly Slater won the Quik Pro and asserted himself as the man to beat in the process. In a continuum of 2012’s world title race, Slater found himself paired up against defending world champ and local hero Joel Parkinson in a 40-minute, no-holds-barred final at the Gold Coast’s world-famous Kirra. The win was Slater's 52nd world tour victory, and the fourth time he’s hoisted the Quiksilver Pro Australia trophy.</p>
+
+        <p class="col-md-10 col-md-offset-1 postText">In the opening three minutes of the final Parkinson drew first blood, posting an 8.67. Slater countered with a 6.83 followed almost immediately by an 8.73. Twenty minutes later Slater took hold of the final with a near-perfect 9.83 that drained down the sand bank. He sat deep on the foam ball of the tube, came flying out and smashed a huge, full-rail layback turn. In a last-minute attempt to run away with a victory Parkinson bagged a respectable 8.80, but Slater's lead proved insurmountable.</p>
+
+        <p class="col-md-10 col-md-offset-1 postText">“The three top seeds -- Joel, myself and Mick -- all finished in the top three spots and Michel (Bourez) had a great event too,” said Slater afterward. “Momentum shifts throughout each season and a lot can happen.”</p>
+
+        <p class="col-md-10 col-md-offset-1 postText">“When Kirra is doing what it’s doing out there today, it doesn’t feel like an event,” Parkinson said. “I had some great waves and a lot of fun, and to get to do it with the singlet on is icing on the cake. I appreciate all the local support out here today and runner-up is a good start to the season. Bring on Bells.”</p>
+      </div>
+
+      <!--Here comes Talkative comments form -->
+      <div class="talkativePart">
+        <h1 class="bigTitle">Talkative comments part</h1>
+        <div class="media col-md-10 col-md-offset-1">
+          <a class="pull-left" href="#">
+            <img class="media-object img-circle" src="http://www.gravatar.com/avatar/a7ecbea4146d0ebc972ddad0f1ebdd00.png">
+          </a>
+          <div class="media-body">
+            <form role="form">
+              <div class="form-group">
+                <input type="name" class="form-control" id="InputName" placeholder="Name">
+              </div>
+              <div class="form-group">
+                <input type="email" class="form-control" id="InputEmail" placeholder="Email">
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" rows="3" placeholder="Leave a Message"></textarea>
+              </div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-default">Post your comment</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="assets/js/jquery.js"></script>
+    <script src="dist/js/bootstrap.min.js"></script>
+  </body>
+</html>
