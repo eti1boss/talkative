@@ -15,6 +15,7 @@ public class Article {
 	protected String titre;
 	protected String url;
 	protected ArrayList<Commentaire> commentaires;
+	protected Inscrit auteur;
 	
 	/*
 	 * Constructeurs
@@ -27,13 +28,15 @@ public class Article {
 	 * @param categories
 	 * @param dateCreation A voir si on conserve cette date
 	 * @param commentaires
+	 * @param auteur 
 	 */
 	public Article(String titre, String url,
-			ArrayList<Commentaire> commentaires) {
+			ArrayList<Commentaire> commentaires, Inscrit auteur) {
 		super();
 		this.titre = titre;
 		this.url = url;
 		this.commentaires = commentaires;
+		this.auteur = auteur;
 	}
 	
 	/**
@@ -42,14 +45,16 @@ public class Article {
 	 * @param titre
 	 * @param url
 	 * @param commentaires
+	 * @param auteur 
 	 */
 	public Article(Integer id, String titre, String url,
-			ArrayList<Commentaire> commentaires) {
+			ArrayList<Commentaire> commentaires, Inscrit auteur) {
 		super();
 		this.id = id;
 		this.titre = titre;
 		this.url = url;
 		this.commentaires = commentaires;
+		this.auteur = auteur;
 	}
 
 
@@ -62,12 +67,13 @@ public class Article {
 	 * @param commentaire
 	 */
 	public Article(String titre, String url,
-			Commentaire commentaire) {
+			Commentaire commentaire, Inscrit auteur) {
 		super();
 		this.titre = titre;
 		this.url = url;
 		commentaires = new ArrayList<Commentaire>();
 		this.ajouterCommentaire(commentaire);
+		this.auteur = auteur;
 	}
 
 	
@@ -127,6 +133,13 @@ public class Article {
 		this.commentaires = commentaires;
 	}
 	
+	public Inscrit getAuteur() {
+		return auteur;
+	}
+
+	public void setAuteur(Inscrit auteur) {
+		this.auteur = auteur;
+	}
 	
 	public String toString(){
 		StringBuilder builder = new StringBuilder();
@@ -138,5 +151,7 @@ public class Article {
 	 		builder.append(com.toString()+"\t");
 	 	return builder.toString();			
 	}
+
+
 	
 }

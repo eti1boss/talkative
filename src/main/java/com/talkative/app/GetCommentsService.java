@@ -25,6 +25,14 @@ public class GetCommentsService {
 			){
 
 		ArrayList<Commentaire> commentaires = null;
+		int testedIdInscrit;
+		
+		try{
+			testedIdInscrit = Integer.parseInt(idInscrit);	
+		}
+		catch(NumberFormatException e){
+			return "Saisie incorrecte";
+		}
 		
 		GestionInscrits gestionInscrits = new GestionInscrits();
 		gestionInscrits.load();
@@ -36,12 +44,12 @@ public class GetCommentsService {
 		 * Ajouter un contrôle sur le string idInscrit (interger requiered)
 		 */
 		if (gestionInscrits.exists(Integer.parseInt(idInscrit))){
-			commentaires = gestionArticles.getComments(urlArticle);
+			commentaires = gestionArticles.getComments(urlArticle, Integer.parseInt(idInscrit));
 			if (commentaires == null){
-				return "L'article "+ urlArticle + " n'existe pas";
+				return "L'article "+ urlArticle + " n'existe pas pour l'auteur " + idInscrit;
 			}
 			else if (commentaires.size() == 0)
-				return "Aucun commentaire trouvé pour cet article";
+				return "Aucun commentaire trouvé pour l'article " +urlArticle;
 			/*
 			 * Cas où il y a des commentaires à gérer
 			 */

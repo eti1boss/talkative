@@ -12,17 +12,17 @@ public class GestionArticles {
 	 * @param url
 	 * @return null si l'article n'existe pas
 	 */
-	public ArrayList<Commentaire> getComments(String url){
+	public ArrayList<Commentaire> getComments(String url, int idInscrit){
 		for(Article a : listArticles){
-			if(a.getUrl().equals(url))
+			if(a.getUrl().equals(url) && a.getAuteur().getId() == idInscrit)
 				return a.getCommentaires();
 		}
 		return null;
 	}
 	
 	public void load(){
-		Article article1 = new Article("article1", "url1", new ArrayList<Commentaire>());
-		Article article2 = new Article("article2", "url2", new ArrayList<Commentaire>());
+		Article article1 = new Article("article1", "url1", new ArrayList<Commentaire>(),new Inscrit(1,null,null,null));
+		Article article2 = new Article("article2", "url2", new ArrayList<Commentaire>(),new Inscrit(2,null,null,null));
 		listArticles.add(article1);
 		listArticles.add(article2);
 	}
