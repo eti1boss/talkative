@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class Article {
 	protected Integer id;
 	protected String titre;
-	protected URL url;
+	protected String url;
 	protected ArrayList<Commentaire> commentaires;
 	
 	/*
@@ -28,7 +28,7 @@ public class Article {
 	 * @param dateCreation A voir si on conserve cette date
 	 * @param commentaires
 	 */
-	public Article(String titre, URL url,
+	public Article(String titre, String url,
 			ArrayList<Commentaire> commentaires) {
 		super();
 		this.titre = titre;
@@ -41,11 +41,9 @@ public class Article {
 	 * @param id 
 	 * @param titre
 	 * @param url
-	 * @param categories
-	 * @param dateCreation IDEM
 	 * @param commentaires
 	 */
-	public Article(Integer id, String titre, URL url,
+	public Article(Integer id, String titre, String url,
 			ArrayList<Commentaire> commentaires) {
 		super();
 		this.id = id;
@@ -63,7 +61,7 @@ public class Article {
 	 * @param dateCreation IDEM
 	 * @param commentaire
 	 */
-	public Article(String titre, URL url,
+	public Article(String titre, String url,
 			Commentaire commentaire) {
 		super();
 		this.titre = titre;
@@ -116,10 +114,10 @@ public class Article {
 	public void setTitre(String titre) {
 		this.titre = titre;
 	}
-	public URL getUrl() {
+	public String getUrl() {
 		return url;
 	}
-	public void setUrl(URL url) {
+	public void setUrl(String url) {
 		this.url = url;
 	}
 	public ArrayList<Commentaire> getCommentaires() {
