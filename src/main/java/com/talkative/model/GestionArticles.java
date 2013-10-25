@@ -1,11 +1,10 @@
 package com.talkative.model;
 
-import java.net.URL;
 import java.util.ArrayList;
 
 public class GestionArticles {
 	
-	protected ArrayList<Article> listArticles = new ArrayList<Article>();
+	public static ArrayList<Article> listArticles = new ArrayList<Article>();
 	
 	/**
 	 * Recuperation de la liste de commentaire d'un article
@@ -18,12 +17,5 @@ public class GestionArticles {
 				return a.getCommentaires();
 		}
 		return null;
-	}
-	
-	public void load(){
-		Article article1 = new Article("article1", "url1", new ArrayList<Commentaire>(),new Inscrit(1,null,null,null));
-		Article article2 = new Article("article2", "url2", new ArrayList<Commentaire>(),new Inscrit(2,null,null,null));
-		listArticles.add(article1);
-		listArticles.add(article2);
 	}
 }
