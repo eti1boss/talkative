@@ -14,11 +14,15 @@
     <!-- Changes on css made for our simple FrontPage -->
     <link href="assets/css/navbar.css" rel="stylesheet">
 
+    <!-- Javascript process to get the form -->
+    <script src="assets/js/main.js"></script>
+
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="assets/js/html5shiv.js"></script>
       <script src="assets/js/respond.min.js"></script>
     <![endif]-->
+
   </head>
 
   <body>
@@ -96,7 +100,7 @@
             <img class="media-object img-circle" src="http://www.gravatar.com/avatar/a7ecbea4146d0ebc972ddad0f1ebdd00.png">
           </a>
           <div class="media-body">
-            <form role="form">
+            <form role="form" Name="talkative">
               <div class="form-group">
                 <input type="name" class="form-control" id="InputName" placeholder="Name">
               </div>
@@ -104,10 +108,10 @@
                 <input type="email" class="form-control" id="InputEmail" placeholder="Email">
               </div>
               <div class="form-group">
-                <textarea class="form-control" rows="3" placeholder="Leave a Message"></textarea>
+                <textarea class="form-control" id="commentZone" rows="3" placeholder="Leave a Message"></textarea>
               </div>
               <div class="form-group">
-                <button type="submit" class="btn btn-default">Post your comment</button>
+                <button type="submit" class="btn btn-default" onClick="ReturnForm(talkative)">Post your comment</button>
               </div>
             </form>
           </div>
