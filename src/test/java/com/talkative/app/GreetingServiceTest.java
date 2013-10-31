@@ -1,5 +1,9 @@
 package com.talkative.app;
 
+import static org.junit.Assert.assertEquals;
+
+import java.io.IOException;
+
 import org.apache.cxf.jaxrs.client.WebClient;
 import org.apache.openejb.jee.SingletonBean;
 import org.apache.openejb.junit.ApplicationComposer;
@@ -7,10 +11,6 @@ import org.apache.openejb.junit.EnableServices;
 import org.apache.openejb.junit.Module;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-
-import java.io.IOException;
-
-import static org.junit.Assert.assertEquals;
 
 @EnableServices(value = "jaxrs")
 @RunWith(ApplicationComposer.class)
