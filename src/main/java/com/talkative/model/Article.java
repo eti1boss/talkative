@@ -1,82 +1,30 @@
 package com.talkative.model;
 
 import java.util.ArrayList;
-//import java.util.Date;
 
+import javax.xml.bind.annotation.XmlRootElement;
 
-/**
- * Cette classe represente l'article commente sur Talkative
- * @author ttr
- *
- */
+@XmlRootElement(name="article")
 public class Article {
-	protected Integer id;
 	protected String titre;
 	protected String url;
+
 	protected ArrayList<Commentaire> commentaires;
-	protected Inscrit auteur;
+	protected Editeur auteur;
 	
 	/*
 	 * Constructeurs
 	 * *************/
-	
-	/**
-	 * Tous les parametres sauf id
-	 * @param titre
-	 * @param url
-	 * @param categories
-	 * @param dateCreation A voir si on conserve cette date
-	 * @param commentaires
-	 * @param auteur 
-	 */
-	public Article(String titre, String url,
-			ArrayList<Commentaire> commentaires, Inscrit auteur) {
+	public Article(String titre, String url, Editeur auteur) {
 		super();
 		this.titre = titre;
 		this.url = url;
-		this.commentaires = commentaires;
 		this.auteur = auteur;
-	}
-	
-	/**
-	 * A utiliser seulement pour creer des objets depuis la DAO (parametre id)
-	 * @param id 
-	 * @param titre
-	 * @param url
-	 * @param commentaires
-	 * @param auteur 
-	 */
-	public Article(Integer id, String titre, String url,
-			ArrayList<Commentaire> commentaires, Inscrit auteur) {
-		super();
-		this.id = id;
-		this.titre = titre;
-		this.url = url;
-		this.commentaires = commentaires;
-		this.auteur = auteur;
-	}
-
-
-	/**
-	 * Pour forcer la creation a partir d'un commentaire
-	 * @param titre
-	 * @param url
-	 * @param categories
-	 * @param dateCreation IDEM
-	 * @param commentaire
-	 */
-	public Article(String titre, String url,
-			Commentaire commentaire, Inscrit auteur) {
-		super();
-		this.titre = titre;
-		this.url = url;
 		commentaires = new ArrayList<Commentaire>();
-		this.ajouterCommentaire(commentaire);
-		this.auteur = auteur;
 	}
-
 	
-	
+	public Article(){
+	}
 	/*
 	 * Methodes
 	 **********/
@@ -89,7 +37,7 @@ public class Article {
 	public void ajouterCommentaire(Commentaire commentaire) {
 		commentaires.add(commentaire);		
 	}
-	
+
 	/*
 	 * A definir
 	 */
@@ -107,12 +55,6 @@ public class Article {
 	/*
 	 * Accesseurs
 	 * **********/
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
 	public String getTitre() {
 		return titre;
 	}
@@ -132,11 +74,11 @@ public class Article {
 		this.commentaires = commentaires;
 	}
 	
-	public Inscrit getAuteur() {
+	public Editeur getAuteur() {
 		return auteur;
 	}
 
-	public void setAuteur(Inscrit auteur) {
+	public void setAuteur(Editeur auteur) {
 		this.auteur = auteur;
 	}
 	

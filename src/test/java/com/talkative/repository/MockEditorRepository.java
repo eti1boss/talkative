@@ -4,12 +4,12 @@ import java.util.ArrayList;
 
 import javax.ejb.Singleton;
 
-import com.talkative.model.Inscrit;
+import com.talkative.model.Editeur;
 
 @Singleton
 public class MockEditorRepository implements EditorRepository {
 	
-	private ArrayList<Inscrit> listEditors = new ArrayList<Inscrit>();
+	private ArrayList<Editeur> listEditors = new ArrayList<Editeur>();
 	
 	/**
 	 * Recuperation de la liste des inscrits
@@ -18,14 +18,13 @@ public class MockEditorRepository implements EditorRepository {
 	 */
 	@Override
 	public boolean contains(String id){
-		for(Inscrit i : listEditors)
-			if(i.getId() == Integer.parseInt(id))
+		for(Editeur i : listEditors)
+			if(i.getLogin().equals(id))
 				return true;
-		
 		return false;
 	}
 	
-	public void addEditor(Inscrit i){
+	public void addEditor(Editeur i){
 		listEditors.add(i);
 	}
 }

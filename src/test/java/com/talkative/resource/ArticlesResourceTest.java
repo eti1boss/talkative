@@ -47,7 +47,7 @@ public class ArticlesResourceTest {
 	public void cannotRetrieveCommentWhenEditorIsNotKnown() {
 		WebClient client = createWebClient();
 
-		client.path("editors").path(MockEditorRepository.UNKNOWN_EDITOR).path("articles/www.epsi.fr/i4/myarticle.html/comments").get();
+//		client.path("editors").path(MockEditorRepository.UNKNOWN_EDITOR).path("articles/www.epsi.fr/i4/myarticle.html/comments").get();
 
 		Assert.assertEquals(403, client.getResponse().getStatus());
 	}

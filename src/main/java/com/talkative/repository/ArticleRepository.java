@@ -4,7 +4,8 @@ import com.talkative.model.Article;
 
 public interface ArticleRepository {
 
-	public boolean contains(String articleId);
+	public boolean contains(String url);
+	public Article get(String url);
 	public void addArticle(Article a);
 	
 }

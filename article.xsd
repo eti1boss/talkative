@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="article" type="article"/>
+
+  <xs:complexType name="article">
+    <xs:sequence>
+      <xs:element name="auteur" type="editeur" minOccurs="0"/>
+      <xs:element name="commentaires" type="commentaire" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="titre" type="xs:string" minOccurs="0"/>
+      <xs:element name="url" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="editeur">
+    <xs:sequence>
+      <xs:element name="login" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="commentaire">
+    <xs:sequence>
+      <xs:element name="auteur" type="editeur" minOccurs="0"/>
+      <xs:element name="contenu" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+

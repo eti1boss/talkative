@@ -11,15 +11,11 @@ public class MockArticleRepository implements ArticleRepository {
 	
 	private ArrayList<Article> listArticles = new ArrayList<Article>();
 	
-	/**
-	 * Recuperation de la liste des articles
-	 * @param id
-	 * @return
-	 */
+
 	@Override
-	public boolean contains(String id){
+	public boolean contains(String url){
 		for(Article a : listArticles)
-			if(a.getUrl().equals(id))
+			if(a.getUrl().equals(url))
 				return true;
 		return false;
 	}
@@ -27,6 +23,14 @@ public class MockArticleRepository implements ArticleRepository {
 	@Override
 	public void addArticle(Article a){
 		listArticles.add(a);
+	}
+
+	@Override
+	public Article get(String url) {
+		for(Article a : listArticles)
+			if(a.getUrl().equals(url))
+				return a;
+		return null;
 	}
 
 }
