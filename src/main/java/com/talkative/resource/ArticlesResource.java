@@ -1,6 +1,5 @@
 package com.talkative.resource;
 
-import javax.mail.internet.InternetAddress;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.Encoded;
 import javax.ws.rs.GET;
