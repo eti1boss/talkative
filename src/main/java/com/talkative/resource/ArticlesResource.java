@@ -9,7 +9,9 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
+import com.talkative.model.AbstractCommentaire;
 import com.talkative.model.Article;
+import com.talkative.model.Commentaire;
 import com.talkative.model.CommentaireGuest;
 import com.talkative.repository.ArticleRepository;
 public class ArticlesResource {
@@ -40,12 +42,12 @@ public class ArticlesResource {
 	@Produces({"application/xml", "application/json"})
 	public Response newComments(@PathParam("article") @Encoded String article, CommentaireGuest comment) {
 		Article a = articleRepository.get(article);
-		System.out.println(comment.getContenu());
-		if(a == null)
+		if(a == null){
 			return Response.status(404).build();
+		}
 		else{
 			a.ajouterCommentaire(comment);
-			return Response.ok().entity(a).build();
+			return Response.status(201).entity(a).build();
 		}
 	}
 }

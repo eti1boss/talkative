@@ -88,7 +88,7 @@ public class Article {
 			this.titre+"\n"+  //titre
 			this.url.toString()+"\n");  //url
 	 	//ajout de chaque commentaire
-	 	for(AbstractCommentaire com : commentaires)  
+	 	for(ICommentaire com : commentaires)  
 	 		builder.append(com.toString()+"\t");
 	 	return builder.toString();			
 	}

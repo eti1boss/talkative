@@ -78,6 +78,7 @@ public class ArtcileCommentsTest {
 		Article article3 = new Article("article3", "www.epsi.com/myArticle3.html", editeur3);
 		articleRepository.addArticle(article1);
 		articleRepository.addArticle(article2);
+		articleRepository.addArticle(article3);
 		Commentaire comment1 = new Commentaire("Il ai nul ton narticle","pseudo1",new Date(System.currentTimeMillis()));
 		article2.ajouterCommentaire(comment1);
 		System.out.println();
@@ -138,28 +139,29 @@ public class ArtcileCommentsTest {
 		} catch (IOException | SAXException e) {
 			System.err.println("Erreur lors de la vérification XML");
 			e.printStackTrace();
-		}
-
-
-    
-    
-    
+		}    
     }
     
+    /*OK*/
+    /*
+     * Vérifier XML ***********************************************************
+     */
     @Test
     public void ajouterCommentaireGuest(){
     	WebClient client = createWebClient();
     	String email = "toto@epsi.fr";
     	String pseudo = "toto";
-    	String contenu = "Vas-y ton article il ai plain de fote ! Retourne a l'écaule !";
+    	String contenu = "Vas-y ton article il ai plain de fote ! Retourne a l'ecaule !";
     	CommentaireGuest comment = new CommentaireGuest(contenu,email,pseudo,new Date(System.currentTimeMillis()));
     	String urlArticle = "www.epsi.com/myArticle3.html";
     	client.header("Accept", "application/xml").
-    	path("editors").path("2").
+    	path("editors").path("3").
     	path("articles").path(urlArticle).
     	path("comments").
     	post(comment);
     	Assert.assertEquals(201, client.getResponse().getStatus());
+    	boolean articleInsere = client.getResponse().getEntity().toString().contains("Vas-y ton article il ai plain");
+    	Assert.assertEquals(true, articleInsere);
 //    	boolean isValidXML = false;
 //		try {
 //			xmlIsValid(client.getResponse().getEntity().toString(), "article.xsd");
@@ -169,7 +171,6 @@ public class ArtcileCommentsTest {
 //			e.printStackTrace();
 //		}
 //		Assert.assertEquals(true, isValidXML);
-    	
     }
     
 	private WebClient createWebClient() {
