@@ -25,6 +25,16 @@ public class CommentaireGuest extends AbstractCommentaire{
 	/*
 	 * Accesseurs
 	 ************/
+	
+	public String getGuestEmail() {
+		return guestEmail;
+	}
+
+	public void setGuestEmail(String guestEmail) {
+		this.guestEmail = guestEmail;
+	}
+
+
 
 
 }

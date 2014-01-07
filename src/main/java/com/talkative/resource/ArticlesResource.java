@@ -1,5 +1,6 @@
 package com.talkative.resource;
 
+import javax.mail.internet.InternetAddress;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.Encoded;
 import javax.ws.rs.GET;
@@ -9,9 +10,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
-import com.talkative.model.AbstractCommentaire;
 import com.talkative.model.Article;
-import com.talkative.model.Commentaire;
 import com.talkative.model.CommentaireGuest;
 import com.talkative.repository.ArticleRepository;
 public class ArticlesResource {
@@ -45,9 +44,18 @@ public class ArticlesResource {
 		if(a == null){
 			return Response.status(404).build();
 		}
+		else if(!isValid(comment)){
+			return Response.status(422).entity("Commentaire invalide!").build();
+		}
 		else{
 			a.ajouterCommentaire(comment);
 			return Response.status(201).entity(a).build();
 		}
+	}
+	
+	private boolean isValid(CommentaireGuest c){
+		return c.getContenu().trim().length() != 0
+				&& c.getPseudo().trim().length() != 0
+				&& c.getGuestEmail().trim().matches("^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$");
 	}
 }

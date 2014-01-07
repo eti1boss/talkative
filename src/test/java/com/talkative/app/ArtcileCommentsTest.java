@@ -152,7 +152,7 @@ public class ArtcileCommentsTest {
     	String email = "toto@epsi.fr";
     	String pseudo = "toto";
     	String contenu = "Vas-y ton article il ai plain de fote ! Retourne a l'ecaule !";
-    	CommentaireGuest comment = new CommentaireGuest(contenu,email,pseudo,new Date(System.currentTimeMillis()));
+    	CommentaireGuest comment = new CommentaireGuest(contenu,pseudo,email,new Date(System.currentTimeMillis()));
     	String urlArticle = "www.epsi.com/myArticle3.html";
     	client.header("Accept", "application/xml").
     	path("editors").path("3").
@@ -171,6 +171,60 @@ public class ArtcileCommentsTest {
 //			e.printStackTrace();
 //		}
 //		Assert.assertEquals(true, isValidXML);
+    }
+    
+    @Test
+    public void ajouterCommentaireGuestContenuVide(){
+    	WebClient client = createWebClient();
+    	String email = "toto@epsi.fr";
+    	String pseudo = "toto";
+    	String contenu = "";
+    	CommentaireGuest comment = new CommentaireGuest(contenu,pseudo,email,new Date(System.currentTimeMillis()));
+    	String urlArticle = "www.epsi.com/myArticle3.html";
+    	client.header("Accept", "application/xml").
+    	path("editors").path("3").
+    	path("articles").path(urlArticle).
+    	path("comments").
+    	post(comment);
+    	Assert.assertEquals(422, client.getResponse().getStatus());
+    	boolean contenuAbsent = client.getResponse().getEntity().toString().contains("invalide");
+    	Assert.assertEquals(true, contenuAbsent);
+    }
+    
+    @Test
+    public void ajouterCommentaireGuestPseudoVide(){
+    	WebClient client = createWebClient();
+    	String email = "toto@epsi.fr";
+    	String pseudo = "";
+    	String contenu = "Mon super commentaire";
+    	CommentaireGuest comment = new CommentaireGuest(contenu,pseudo,email,new Date(System.currentTimeMillis()));
+    	String urlArticle = "www.epsi.com/myArticle3.html";
+    	client.header("Accept", "application/xml").
+    	path("editors").path("3").
+    	path("articles").path(urlArticle).
+    	path("comments").
+    	post(comment);
+    	Assert.assertEquals(422, client.getResponse().getStatus());
+    	boolean contenuAbsent = client.getResponse().getEntity().toString().contains("invalide");
+    	Assert.assertEquals(true, contenuAbsent);
+    }
+    
+    @Test
+    public void ajouterCommentaireGuestEmailInvalide(){
+    	WebClient client = createWebClient();
+    	String email = "nick.samer@lol";
+    	String pseudo = "Nick Samer";
+    	String contenu = "Mon super commentaire";
+    	CommentaireGuest comment = new CommentaireGuest(contenu,pseudo,email,new Date(System.currentTimeMillis()));
+    	String urlArticle = "www.epsi.com/myArticle3.html";
+    	client.header("Accept", "application/xml").
+    	path("editors").path("3").
+    	path("articles").path(urlArticle).
+    	path("comments").
+    	post(comment);
+    	Assert.assertEquals(422, client.getResponse().getStatus());
+    	boolean contenuAbsent = client.getResponse().getEntity().toString().contains("invalide");
+    	Assert.assertEquals(true, contenuAbsent);
     }
     
 	private WebClient createWebClient() {
