@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Date;
 
 import javax.ejb.EJB;
 import javax.xml.transform.sax.SAXSource;
@@ -31,6 +32,7 @@ import org.xml.sax.SAXException;
 
 import com.talkative.model.Article;
 import com.talkative.model.Commentaire;
+import com.talkative.model.CommentaireGuest;
 import com.talkative.model.Editeur;
 import com.talkative.repository.ArticleRepository;
 import com.talkative.repository.EditorRepository;
@@ -73,9 +75,10 @@ public class ArtcileCommentsTest {
 		editorRepository.addEditor(editeur3);
     	Article article1 = new Article("article1", "www.epsi.com/myArticle1.html", editeur1);
 		Article article2 = new Article("article2", "www.epsi.com/myArticle2.html", editeur2);
+		Article article3 = new Article("article3", "www.epsi.com/myArticle3.html", editeur3);
 		articleRepository.addArticle(article1);
 		articleRepository.addArticle(article2);
-		Commentaire comment1 = new Commentaire("Il ai nul ton narticle", editeur1);
+		Commentaire comment1 = new Commentaire("Il ai nul ton narticle","pseudo1",new Date(System.currentTimeMillis()));
 		article2.ajouterCommentaire(comment1);
 		System.out.println();
     }
@@ -118,6 +121,7 @@ public class ArtcileCommentsTest {
 //    	String commentaireTexte = "Vas-y ton article il ai plain de fote ! Retourne a l'écaule !";
 //    }
     
+    /*OK*/
     @Test
     public void recupererArticleXML() {
     	WebClient client = createWebClient();
@@ -135,7 +139,37 @@ public class ArtcileCommentsTest {
 			System.err.println("Erreur lors de la vérification XML");
 			e.printStackTrace();
 		}
-		Assert.assertEquals(true, isValidXML);
+
+
+    
+    
+    
+    }
+    
+    @Test
+    public void ajouterCommentaireGuest(){
+    	WebClient client = createWebClient();
+    	String email = "toto@epsi.fr";
+    	String pseudo = "toto";
+    	String contenu = "Vas-y ton article il ai plain de fote ! Retourne a l'écaule !";
+    	CommentaireGuest comment = new CommentaireGuest(contenu,email,pseudo,new Date(System.currentTimeMillis()));
+    	String urlArticle = "www.epsi.com/myArticle3.html";
+    	client.header("Accept", "application/xml").
+    	path("editors").path("2").
+    	path("articles").path(urlArticle).
+    	path("comments").
+    	post(comment);
+    	Assert.assertEquals(201, client.getResponse().getStatus());
+//    	boolean isValidXML = false;
+//		try {
+//			xmlIsValid(client.getResponse().getEntity().toString(), "article.xsd");
+//			isValidXML = true;
+//		} catch (IOException | SAXException e) {
+//			System.err.println("Erreur lors de la vérification XML");
+//			e.printStackTrace();
+//		}
+//		Assert.assertEquals(true, isValidXML);
+    	
     }
     
 	private WebClient createWebClient() {

@@ -9,7 +9,7 @@ public class Article {
 	protected String titre;
 	protected String url;
 
-	protected ArrayList<Commentaire> commentaires;
+	protected ArrayList<AbstractCommentaire> commentaires;
 	protected Editeur auteur;
 	
 	/*
@@ -20,7 +20,7 @@ public class Article {
 		this.titre = titre;
 		this.url = url;
 		this.auteur = auteur;
-		commentaires = new ArrayList<Commentaire>();
+		commentaires = new ArrayList<AbstractCommentaire>();
 	}
 	
 	public Article(){
@@ -34,7 +34,7 @@ public class Article {
 	 * Prerequis : la liste de commentaires a ete initialisee. 
 	 * @param commentaire
 	 */
-	public void ajouterCommentaire(Commentaire commentaire) {
+	public void ajouterCommentaire(AbstractCommentaire commentaire) {
 		commentaires.add(commentaire);		
 	}
 
@@ -67,10 +67,10 @@ public class Article {
 	public void setUrl(String url) {
 		this.url = url;
 	}
-	public ArrayList<Commentaire> getCommentaires() {
+	public ArrayList<AbstractCommentaire> getCommentaires() {
 		return commentaires;
 	}
-	public void setCommentaires(ArrayList<Commentaire> commentaires) {
+	public void setCommentaires(ArrayList<AbstractCommentaire> commentaires) {
 		this.commentaires = commentaires;
 	}
 	
@@ -88,7 +88,7 @@ public class Article {
 			this.titre+"\n"+  //titre
 			this.url.toString()+"\n");  //url
 	 	//ajout de chaque commentaire
-	 	for(Commentaire com : commentaires)  
+	 	for(AbstractCommentaire com : commentaires)  
 	 		builder.append(com.toString()+"\t");
 	 	return builder.toString();			
 	}
